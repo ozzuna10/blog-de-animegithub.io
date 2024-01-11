@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Trading</title>
+    <!-- Agrega la referencia a Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- El contenedor para el gráfico -->
+    <canvas id="myChart" width="800" height="400"></canvas>
+
+    <script>
+        // Datos de ejemplo (fecha, precio de cierre)
+        var data = {
+            labels: ['Fecha1', 'Fecha2', 'Fecha3', 'Fecha4', 'Fecha5'],
+            datasets: [{
+                label: 'Precio de Cierre',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                data: [100, 105, 110, 95, 120],
+            }]
+        };
+
+        // Configuración del gráfico
+        var options = {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left'
+                }
+            }
+        };
+
+        // Crear el gráfico
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+    </script>
+</body>
+</html>
